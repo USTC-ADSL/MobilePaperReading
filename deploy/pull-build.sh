@@ -22,6 +22,10 @@ git -C "$source_dir" reset --hard origin/main
     --config-file "$source_dir/mkdocs.yml" \
     --site-dir "$site_dir"
 
+mkdir -p "$site_dir/admin"
+cp "$source_dir/admin/index.html" "$site_dir/admin/index.html"
+cp "$source_dir/admin/config.yml" "$site_dir/admin/config.yml"
+
 docker compose \
     -f "$source_dir/deploy/oauth/docker-compose.yml" \
     up -d --build --remove-orphans
