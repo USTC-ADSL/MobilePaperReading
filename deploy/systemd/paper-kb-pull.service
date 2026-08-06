@@ -1,8 +1,0 @@
-[Unit]
-Description=Update and build the paper knowledge base
-After=network-online.target docker.service
-Wants=network-online.target
-
-[Service]
-Type=oneshot
-ExecStart=/srv/paper-kb/source/deploy/pull-build.sh

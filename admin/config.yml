@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: rururush/paper-knowledge-base
+  repo: USTC-ADSL/MobilePaperReading
   branch: main
   base_url: https://paper.adslab.icu
   auth_endpoint: api/admin/auth/begin

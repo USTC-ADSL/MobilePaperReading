@@ -1,5 +1,5 @@
 .venv/
 site/
+.secrets/
 __pycache__/
 .DS_Store
-

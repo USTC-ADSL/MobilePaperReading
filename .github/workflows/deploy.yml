@@ -1,0 +1,44 @@
+name: Deploy paper knowledge base
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Configure VPS SSH access
+        env:
+          PAPER_VPS_SSH_KEY: ${{ secrets.PAPER_VPS_SSH_KEY }}
+        run: |
+          install -d -m 700 "$HOME/.ssh"
+          printf '%s\n' "$PAPER_VPS_SSH_KEY" > "$HOME/.ssh/paper-vps"
+          chmod 600 "$HOME/.ssh/paper-vps"
+          cp deploy/github-known-hosts "$HOME/.ssh/known_hosts"
+          chmod 644 "$HOME/.ssh/known_hosts"
+
+      - name: Sync source to VPS
+        run: |
+          rsync -az --delete \
+            --exclude '.git' \
+            --exclude '.venv' \
+            --exclude 'site' \
+            -e 'ssh -i $HOME/.ssh/paper-vps -o IdentitiesOnly=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts' \
+            ./ paperdeploy@38.14.254.97:/srv/paper-kb/source/
+
+      - name: Build and restart services
+        run: |
+          ssh -i "$HOME/.ssh/paper-vps" \
+            -o IdentitiesOnly=yes \
+            -o UserKnownHostsFile="$HOME/.ssh/known_hosts" \
+            paperdeploy@38.14.254.97 \
+            'sh /srv/paper-kb/source/deploy/actions-deploy.sh'
+
