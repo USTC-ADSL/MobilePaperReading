@@ -1,11 +1,9 @@
 backend:
-  name: gitea
-  repo: paperadmin/paper-knowledge-base
+  name: github
+  repo: rururush/paper-knowledge-base
   branch: main
-  app_id: __GITEA_APP_ID__
-  api_root: https://paper.adslab.icu/git/api/v1
-  base_url: https://paper.adslab.icu/git
-  auth_endpoint: https://paper.adslab.icu/git/login/oauth/authorize
+  base_url: https://paper.adslab.icu
+  auth_endpoint: api/admin/auth/begin
 
 media_folder: docs/assets
 public_folder: /assets
@@ -83,4 +81,3 @@ collections:
       - label: 笔记
         name: body
         widget: markdown
-

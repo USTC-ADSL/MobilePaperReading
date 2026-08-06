@@ -1,0 +1,10 @@
+services:
+  paper-oauth:
+    build: .
+    container_name: paper-kb-oauth
+    restart: unless-stopped
+    env_file:
+      - /data/services/paper-kb/oauth.env
+    ports:
+      - "127.0.0.1:3100:3100"
+
