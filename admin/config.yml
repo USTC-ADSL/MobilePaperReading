@@ -10,20 +10,38 @@ public_folder: /assets
 publish_mode: simple
 
 collections:
-  - name: readings
-    label: 论文阅读
-    label_singular: 论文阅读
-    folder: docs/readings
+  - name: papers
+    label: 会议论文
+    label_singular: 论文
+    folder: docs/papers
     create: true
     delete: true
     identifier_field: title
-    slug: "{{slug}}"
-    summary: "{{title}} · {{year}}"
+    nested:
+      depth: 10
+      summary: "{{title}}"
+      subfolders: false
+    meta:
+      path:
+        widget: string
+        label: 文件路径
+        index_file: index
     fields:
       - label: 标题
         name: title
         widget: string
         required: true
+      - label: 会议
+        name: conference
+        widget: string
+        required: true
+      - label: 年份
+        name: year
+        widget: number
+        value_type: int
+        min: 1900
+        max: 2100
+        default: 2024
       - label: 作者
         name: authors
         widget: list
@@ -31,13 +49,6 @@ collections:
           label: 作者
           name: author
           widget: string
-      - label: 年份
-        name: year
-        widget: number
-        value_type: int
-        min: 1900
-        max: 2100
-        default: 2026
       - label: 出处
         name: venue
         widget: string
