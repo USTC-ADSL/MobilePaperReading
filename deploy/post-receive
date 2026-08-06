@@ -1,0 +1,20 @@
+#!/bin/sh
+set -eu
+
+deploy_root=/srv/paper-kb
+source_dir="$deploy_root/source"
+site_dir="$deploy_root/site"
+venv_mkdocs="$deploy_root/venv/bin/mkdocs"
+
+exec 9>"$deploy_root/.build.lock"
+flock 9
+
+while read -r oldrev newrev ref; do
+    case "$ref" in
+        refs/heads/main)
+            git --work-tree="$source_dir" checkout -f main
+            "$venv_mkdocs" build --clean --config-file "$source_dir/mkdocs.yml" --site-dir "$site_dir"
+            ;;
+    esac
+done
+
