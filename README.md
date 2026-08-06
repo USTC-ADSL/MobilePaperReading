@@ -16,10 +16,12 @@ mkdocs serve
 论文文件按会议和年份归档，例如：
 
 ```text
-docs/papers/FAST/24/paper.md
-docs/papers/FAST/25/paper.md
-docs/papers/DAC/24/paper.md
+docs/papers/fast/24/paper.md
+docs/papers/fast/25/paper.md
+docs/papers/dac/24/paper.md
 ```
+
+在内容管理后台的“文件路径”中填写相对 `docs/papers` 的小写路径，例如 `fast/24`。论文表单中的“会议”字段仍可填写 `FAST`、`DAC` 等正式名称。
 
 ## 论文阅读模板
 

@@ -25,6 +25,7 @@ collections:
       path:
         widget: string
         label: 文件路径
+        hint: 相对 docs/papers 的小写路径，例如 fast/24；Decap CMS 会将路径转换为小写。
         index_file: index
     fields:
       - label: 标题
