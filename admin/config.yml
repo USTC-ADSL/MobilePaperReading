@@ -1,0 +1,86 @@
+backend:
+  name: gitea
+  repo: paperadmin/paper-knowledge-base
+  branch: main
+  app_id: __GITEA_APP_ID__
+  api_root: https://paper.adslab.icu/git/api/v1
+  base_url: https://paper.adslab.icu/git
+  auth_endpoint: https://paper.adslab.icu/git/login/oauth/authorize
+
+media_folder: docs/assets
+public_folder: /assets
+publish_mode: simple
+
+collections:
+  - name: readings
+    label: 论文阅读
+    label_singular: 论文阅读
+    folder: docs/readings
+    create: true
+    delete: true
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{title}} · {{year}}"
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+        required: true
+      - label: 作者
+        name: authors
+        widget: list
+        field:
+          label: 作者
+          name: author
+          widget: string
+      - label: 年份
+        name: year
+        widget: number
+        value_type: int
+        min: 1900
+        max: 2100
+        default: 2026
+      - label: 出处
+        name: venue
+        widget: string
+        required: false
+      - label: DOI 或链接
+        name: link
+        widget: string
+        required: false
+      - label: 阅读状态
+        name: status
+        widget: select
+        options:
+          - 待读
+          - 阅读中
+          - 已讨论
+          - 已归档
+        default: 待读
+      - label: 标签
+        name: tags
+        widget: list
+        required: false
+      - label: 一句话摘要
+        name: summary
+        widget: text
+        required: false
+      - label: 研究问题
+        name: research_question
+        widget: text
+        required: false
+      - label: 主要观点
+        name: key_points
+        widget: text
+        required: false
+      - label: 小组讨论问题
+        name: discussion
+        widget: list
+        field:
+          label: 问题
+          name: question
+          widget: string
+      - label: 笔记
+        name: body
+        widget: markdown
+
