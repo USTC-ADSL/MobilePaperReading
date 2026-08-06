@@ -15,6 +15,10 @@ mkdir -p "$site_dir/admin"
 cp "$source_dir/admin/index.html" "$site_dir/admin/index.html"
 cp "$source_dir/admin/config.yml" "$site_dir/admin/config.yml"
 
+# MkDocs runs as paperdeploy while Nginx reads the generated files as www-data.
+find "$site_dir" -type d -exec chmod 755 {} +
+find "$site_dir" -type f -exec chmod 644 {} +
+
 oauth_env=/data/services/paper-kb/oauth.env
 if [ -f "$oauth_env" ]; then
     docker compose \
@@ -23,4 +27,3 @@ if [ -f "$oauth_env" ]; then
 else
     printf '%s\n' 'OAuth env is not configured; skipped OAuth service.' >&2
 fi
-
