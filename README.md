@@ -16,9 +16,9 @@ mkdocs serve
 论文文件按会议和年份归档，例如：
 
 ```text
-docs/papers/FAST/2024/paper.md
-docs/papers/FAST/2025/paper.md
-docs/papers/DAC/2024/paper.md
+docs/papers/FAST/24/paper.md
+docs/papers/FAST/25/paper.md
+docs/papers/DAC/24/paper.md
 ```
 
 ## 论文阅读模板
