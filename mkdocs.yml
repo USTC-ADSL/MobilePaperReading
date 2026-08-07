@@ -8,6 +8,8 @@ theme:
   language: zh
   features:
     - navigation.instant
+    - navigation.sections
+    - navigation.expand
     - navigation.top
     - search.suggest
     - search.highlight
