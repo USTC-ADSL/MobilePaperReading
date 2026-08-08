@@ -1,4 +1,4 @@
-# 论文共读
+# PaperReading
 
 这是小组共读论文的 MkDocs Material 知识库。
 
