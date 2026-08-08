@@ -14,6 +14,21 @@ def _metadata(path):
     return yaml.safe_load(match.group(1)) or {}
 
 
+def _path_context(path, papers_dir):
+    parts = path.relative_to(papers_dir).parts
+    if len(parts) < 3:
+        return "", ""
+    return parts[0].upper(), parts[1]
+
+
+def _sort_year(value):
+    try:
+        year = int(value)
+    except (TypeError, ValueError):
+        return 0
+    return year + 2000 if 0 <= year < 100 else year
+
+
 def _paper_list(config):
     papers_dir = Path(config.docs_dir) / "papers"
     papers = []
@@ -23,22 +38,20 @@ def _paper_list(config):
             continue
         data = _metadata(path)
         relative_path = path.relative_to(config.docs_dir).as_posix()
-        year = data.get("year", "")
-        try:
-            sort_year = int(year)
-        except (TypeError, ValueError):
-            sort_year = 0
-        papers.append((sort_year, relative_path, data))
+        path_conference, path_year = _path_context(path, papers_dir)
+        year = str(data.get("year") or path_year)
+        sort_year = _sort_year(year)
+        papers.append((sort_year, relative_path, data, path_conference, path_year))
 
     papers.sort(key=lambda item: (-item[0], item[1]))
     if not papers:
         return "暂无论文。请从 [内容管理后台](/admin/) 新建一篇论文。"
 
     lines = []
-    for _, relative_path, data in papers:
+    for _, relative_path, data, path_conference, path_year in papers:
         title = str(data.get("title") or Path(relative_path).stem)
-        conference = str(data.get("conference") or "")
-        year = str(data.get("year") or "")
+        conference = str(data.get("conference") or path_conference)
+        year = str(data.get("year") or path_year)
         status = str(data.get("status") or "")
         details = " · ".join(value for value in (conference, year, status) if value)
         suffix = f" — {details}" if details else ""
@@ -50,4 +63,3 @@ def on_page_markdown(markdown, page, config, files):
     if page.file.src_uri != "index.md":
         return markdown
     return markdown.replace("<!-- PAPER_LIST -->", _paper_list(config))
-
