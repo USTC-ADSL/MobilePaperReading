@@ -31,7 +31,7 @@ jobs:
             --exclude '.git' \
             --exclude '.venv' \
             --exclude 'site' \
-            -e 'ssh -i $HOME/.ssh/paper-vps -o IdentitiesOnly=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts' \
+            -e "ssh -i $HOME/.ssh/paper-vps -o IdentitiesOnly=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts" \
             ./ paperdeploy@38.14.254.97:/srv/paper-kb/source/
 
       - name: Build and restart services
@@ -41,4 +41,3 @@ jobs:
             -o UserKnownHostsFile="$HOME/.ssh/known_hosts" \
             paperdeploy@38.14.254.97 \
             'sh /srv/paper-kb/source/deploy/actions-deploy.sh'
-
