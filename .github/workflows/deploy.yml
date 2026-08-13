@@ -19,19 +19,25 @@ jobs:
         env:
           PAPER_VPS_SSH_KEY: ${{ secrets.PAPER_VPS_SSH_KEY }}
         run: |
+          set -eu
           install -d -m 700 "$HOME/.ssh"
           printf '%s\n' "$PAPER_VPS_SSH_KEY" > "$HOME/.ssh/paper-vps"
           chmod 600 "$HOME/.ssh/paper-vps"
+          test -s "$HOME/.ssh/paper-vps"
+          ssh-keygen -y -f "$HOME/.ssh/paper-vps" | ssh-keygen -lf -
           cp deploy/github-known-hosts "$HOME/.ssh/known_hosts"
           chmod 644 "$HOME/.ssh/known_hosts"
 
       - name: Sync source to VPS
         run: |
+          set -eu
+          ssh_options="-i $HOME/.ssh/paper-vps -o IdentitiesOnly=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts -o BatchMode=yes -o ConnectTimeout=15"
+          ssh $ssh_options paperdeploy@38.14.254.97 'printf "%s\\n" ssh_connection_ok'
           rsync -az --delete \
             --exclude '.git' \
             --exclude '.venv' \
             --exclude 'site' \
-            -e "ssh -i $HOME/.ssh/paper-vps -o IdentitiesOnly=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts" \
+            -e "ssh $ssh_options" \
             ./ paperdeploy@38.14.254.97:/srv/paper-kb/source/
 
       - name: Build and restart services
