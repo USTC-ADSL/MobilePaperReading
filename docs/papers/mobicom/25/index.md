@@ -1,7 +1,7 @@
 ---
 title: " D²MoE: Dual Routing and Dynamic Scheduling for Efficient On-Device
   MoE-based LLM Serving"
-conference: PPoPP
+conference: MobiCom
 ---
 > 作者为 SongGuo (HKUST)
 >
