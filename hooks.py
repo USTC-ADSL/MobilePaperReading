@@ -34,7 +34,7 @@ def _paper_list(config):
     papers = []
 
     for path in papers_dir.rglob("*.md"):
-        if path.name == "index.md" or path.name.startswith("_"):
+        if path.name.startswith("_"):
             continue
         data = _metadata(path)
         relative_path = path.relative_to(config.docs_dir).as_posix()

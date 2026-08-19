@@ -13,12 +13,12 @@ mkdocs serve
 
 网站内容位于 `docs/`。线上编辑入口位于 `/admin/`，通过 Decap CMS 登录后，在 **会议论文** 集合中创建或修改论文。
 
-论文文件按会议和年份归档，例如：
+论文文件按会议和年份归档，文件名由论文标题自动生成，例如：
 
 ```text
-docs/papers/fast/24/paper.md
-docs/papers/fast/25/paper.md
-docs/papers/dac/24/paper.md
+docs/papers/fast/24/paper-title-a.md
+docs/papers/fast/24/paper-title-b.md
+docs/papers/dac/24/paper-title.md
 ```
 
 在内容管理后台的“文件路径”中填写相对 `docs/papers` 的小写路径，例如 `fast/24`。论文表单中的“会议”字段仍可填写 `FAST`、`DAC` 等正式名称。
