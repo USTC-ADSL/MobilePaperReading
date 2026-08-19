@@ -10,22 +10,133 @@ public_folder: /assets
 publish_mode: simple
 
 collections:
-  - name: papers
-    label: 会议论文
+  - name: dac-24
+    label: DAC'24
     label_singular: 论文
-    folder: docs/papers
+    folder: "docs/papers/DAC/DAC'24"
     create: true
     delete: true
     identifier_field: title
-    nested:
-      depth: 10
-      summary: "{{title}}"
-      subfolders: false
-    meta:
-      path:
+    fields:
+      - label: 标题
+        name: title
         widget: string
-        label: 文件路径
-        hint: 相对 docs/papers 的小写目录路径，例如 fast/24；论文文件名会根据标题自动生成，Decap CMS 会将路径转换为小写。
+        required: true
+      - label: 会议
+        name: conference
+        widget: string
+        required: true
+      - label: 笔记
+        name: body
+        widget: markdown
+
+  - name: dac-25
+    label: DAC'25
+    label_singular: 论文
+    folder: "docs/papers/DAC/DAC'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+        required: true
+      - label: 会议
+        name: conference
+        widget: string
+        required: true
+      - label: 笔记
+        name: body
+        widget: markdown
+
+  - name: eurosys-26
+    label: Eurosys'26
+    label_singular: 论文
+    folder: "docs/papers/Eurosys/Eurosys'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+        required: true
+      - label: 会议
+        name: conference
+        widget: string
+        required: true
+      - label: 笔记
+        name: body
+        widget: markdown
+
+  - name: fast-25
+    label: FAST'25
+    label_singular: 论文
+    folder: "docs/papers/FAST/FAST'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+        required: true
+      - label: 会议
+        name: conference
+        widget: string
+        required: true
+      - label: 笔记
+        name: body
+        widget: markdown
+
+  - name: fast-26
+    label: FAST'26
+    label_singular: 论文
+    folder: "docs/papers/FAST/FAST'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+        required: true
+      - label: 会议
+        name: conference
+        widget: string
+        required: true
+      - label: 笔记
+        name: body
+        widget: markdown
+
+  - name: icml-26
+    label: ICML'26
+    label_singular: 论文
+    folder: "docs/papers/ICML/ICML'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields:
+      - label: 标题
+        name: title
+        widget: string
+        required: true
+      - label: 会议
+        name: conference
+        widget: string
+        required: true
+      - label: 笔记
+        name: body
+        widget: markdown
+
+  - name: mobicom-25
+    label: MobiCom'25
+    label_singular: 论文
+    folder: "docs/papers/MobiCom/MobiCom'25"
+    create: true
+    delete: true
+    identifier_field: title
     fields:
       - label: 标题
         name: title

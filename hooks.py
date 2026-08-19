@@ -18,10 +18,22 @@ def _path_context(path, papers_dir):
     parts = path.relative_to(papers_dir).parts
     if len(parts) < 3:
         return "", ""
-    return parts[0].upper(), parts[1]
+    conference_names = {
+        "dac": "DAC",
+        "eurosys": "Eurosys",
+        "fast": "FAST",
+        "icml": "ICML",
+        "mobicom": "MobiCom",
+    }
+    conference = conference_names.get(parts[0].lower(), parts[0])
+    year_match = re.search(r"(\d{2,4})$", parts[1])
+    year = year_match.group(1) if year_match else parts[1]
+    return conference, year
 
 
 def _sort_year(value):
+    match = re.search(r"(\d{2,4})$", str(value).strip())
+    value = match.group(1) if match else value
     try:
         year = int(value)
     except (TypeError, ValueError):
