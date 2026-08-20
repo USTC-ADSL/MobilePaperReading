@@ -17,7 +17,7 @@ collections:
     create: true
     delete: true
     identifier_field: title
-    fields:
+    fields: &paper_fields
       - label: 标题
         name: title
         widget: string
@@ -29,6 +29,204 @@ collections:
       - label: 笔记
         name: body
         widget: markdown
+
+  - name: dac-26
+    label: DAC'26
+    label_singular: 论文
+    folder: "docs/papers/DAC/DAC'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: eurosys-25
+    label: Eurosys'25
+    label_singular: 论文
+    folder: "docs/papers/Eurosys/Eurosys'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: asplos-24
+    label: ASPLOS'24
+    label_singular: 论文
+    folder: "docs/papers/ASPLOS/ASPLOS'24"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: asplos-25
+    label: ASPLOS'25
+    label_singular: 论文
+    folder: "docs/papers/ASPLOS/ASPLOS'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: asplos-26
+    label: ASPLOS'26
+    label_singular: 论文
+    folder: "docs/papers/ASPLOS/ASPLOS'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: hpca-25
+    label: HPCA'25
+    label_singular: 论文
+    folder: "docs/papers/HPCA/HPCA'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: hpca-26
+    label: HPCA'26
+    label_singular: 论文
+    folder: "docs/papers/HPCA/HPCA'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: isca-25
+    label: ISCA'25
+    label_singular: 论文
+    folder: "docs/papers/ISCA/ISCA'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: isca-26
+    label: ISCA'26
+    label_singular: 论文
+    folder: "docs/papers/ISCA/ISCA'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: micro-24
+    label: MICRO'24
+    label_singular: 论文
+    folder: "docs/papers/MICRO/MICRO'24"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: micro-25
+    label: MICRO'25
+    label_singular: 论文
+    folder: "docs/papers/MICRO/MICRO'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: mobicom-24
+    label: MobiCom'24
+    label_singular: 论文
+    folder: "docs/papers/MobiCom/MobiCom'24"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: mobicom-26
+    label: MobiCom'26
+    label_singular: 论文
+    folder: "docs/papers/MobiCom/MobiCom'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: nsdi-26
+    label: NSDI'26
+    label_singular: 论文
+    folder: "docs/papers/NSDI/NSDI'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: osdi-24
+    label: OSDI'24
+    label_singular: 论文
+    folder: "docs/papers/OSDI/OSDI'24"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: osdi-25
+    label: OSDI'25
+    label_singular: 论文
+    folder: "docs/papers/OSDI/OSDI'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: osdi-26
+    label: OSDI'26
+    label_singular: 论文
+    folder: "docs/papers/OSDI/OSDI'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: ppopp-25
+    label: PPoPP'25
+    label_singular: 论文
+    folder: "docs/papers/PPoPP/PPoPP'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: ppopp-26
+    label: PPoPP'26
+    label_singular: 论文
+    folder: "docs/papers/PPoPP/PPoPP'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: sc-24
+    label: SC'24
+    label_singular: 论文
+    folder: "docs/papers/SC/SC'24"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: sc-25
+    label: SC'25
+    label_singular: 论文
+    folder: "docs/papers/SC/SC'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: usenix-atc-25
+    label: USENIX ATC'25
+    label_singular: 论文
+    folder: "docs/papers/USENIX ATC/USENIX ATC'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
 
   - name: dac-25
     label: DAC'25

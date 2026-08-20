@@ -19,11 +19,20 @@ def _path_context(path, papers_dir):
     if len(parts) < 3:
         return "", ""
     conference_names = {
+        "asplos": "ASPLOS",
         "dac": "DAC",
         "eurosys": "Eurosys",
         "fast": "FAST",
+        "hpca": "HPCA",
         "icml": "ICML",
+        "isca": "ISCA",
+        "micro": "MICRO",
         "mobicom": "MobiCom",
+        "nsdi": "NSDI",
+        "osdi": "OSDI",
+        "ppopp": "PPoPP",
+        "sc": "SC",
+        "usenix atc": "USENIX ATC",
     }
     conference = conference_names.get(parts[0].lower(), parts[0])
     year_match = re.search(r"(\d{2,4})$", parts[1])
