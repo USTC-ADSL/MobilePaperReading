@@ -26,13 +26,19 @@ def _path_context(path, papers_dir):
         "hpca": "HPCA",
         "icml": "ICML",
         "isca": "ISCA",
+        "ics": "ICS",
+        "iwqos": "IWQoS",
         "micro": "MICRO",
+        "mobisys": "MobiSys",
         "mobicom": "MobiCom",
         "nsdi": "NSDI",
         "osdi": "OSDI",
         "ppopp": "PPoPP",
         "sc": "SC",
+        "sensys": "SenSys",
+        "sigmetrics": "SIGMETRICS",
         "usenix atc": "USENIX ATC",
+        "euro-par": "Euro-Par",
     }
     conference = conference_names.get(parts[0].lower(), parts[0])
     year_match = re.search(r"(\d{2,4})$", parts[1])

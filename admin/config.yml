@@ -228,6 +228,96 @@ collections:
     identifier_field: title
     fields: *paper_fields
 
+  - name: mobisys-25
+    label: MobiSys'25
+    label_singular: 论文
+    folder: "docs/papers/MobiSys/MobiSys'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: mobisys-26
+    label: MobiSys'26
+    label_singular: 论文
+    folder: "docs/papers/MobiSys/MobiSys'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: iwqos-25
+    label: IWQoS'25
+    label_singular: 论文
+    folder: "docs/papers/IWQoS/IWQoS'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: iwqos-26
+    label: IWQoS'26
+    label_singular: 论文
+    folder: "docs/papers/IWQoS/IWQoS'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: sigmetrics-26
+    label: SIGMETRICS'26
+    label_singular: 论文
+    folder: "docs/papers/SIGMETRICS/SIGMETRICS'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: sensys-24
+    label: SenSys'24
+    label_singular: 论文
+    folder: "docs/papers/SenSys/SenSys'24"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: sensys-25
+    label: SenSys'25
+    label_singular: 论文
+    folder: "docs/papers/SenSys/SenSys'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: sensys-26
+    label: SenSys'26
+    label_singular: 论文
+    folder: "docs/papers/SenSys/SenSys'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: ics-26
+    label: ICS'26
+    label_singular: 论文
+    folder: "docs/papers/ICS/ICS'26"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
+  - name: euro-par-25
+    label: Euro-Par'25
+    label_singular: 论文
+    folder: "docs/papers/Euro-Par/Euro-Par'25"
+    create: true
+    delete: true
+    identifier_field: title
+    fields: *paper_fields
+
   - name: dac-25
     label: DAC'25
     label_singular: 论文
