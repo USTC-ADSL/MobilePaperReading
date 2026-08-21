@@ -37,3 +37,26 @@ VLM 典型的 workflow 是离线的：
 2. 将 cache 预算按上下文分桶，先按照上述重要性分数贪心地保留一定比例的 token，当且仅当各桶内预算足够才填入，然后将剩下的未满的桶也按重要性分数填满，此举是为了避免只将最近的 token 填入 cache，增强长程能力。  
 
 ![](/assets/屏幕截图-2026-08-21-190132.png)
+
+#### Position-agnostic Retrieval
+
+不能直接将 cache 里所有的 token 都应用到新查询中，所以进行检索，现有的查询方法是 page-level 的，即将 KV cache 分页，从每页中计算出代表 tensor 来计算和 query 的相关性。但这对压缩后的 cache 影响较大，因为压缩后的 cache 的 Positional Embedding 信息是不连续的，比方说一个页内的 token 顺序可能是 1 8 17 34...这会破坏代表 tensor 的代表能力，因此设计 PaR 方法：
+1. 移除 cache 中 key tensor 的 PE，计算每页的代表 tensor；
+2，计算代表 tensor 与 query 的相似性选出最相关的数页；
+3. 还原 PE，将这些页的 tensor 与最近窗口内的 tokens 作为输入。
+
+![PaR.png](https://img.195806.xyz/file/1787310940414_PaR.png)
+
+### Evaluation
+
+- 基础模型：LLaVA-OneVision-Qwen2-7B-OV
+- 硬件：NVIDIA 4090D
+- 超参：缓存预算 M=12k；bucket 容量 B=1；page 大小 C=16；检索比例 40%
+
+#### 质量表现
+
+在不进行 offload KV cache 到 CPU 的条件下，LiveVLM 报出了最高准确率与分数（GPT打分）。
+
+#### 开销表现
+
+![LiveVLM-overhead.png](https://img.195806.xyz/file/1787311339580_LiveVLM-overhead.png)
