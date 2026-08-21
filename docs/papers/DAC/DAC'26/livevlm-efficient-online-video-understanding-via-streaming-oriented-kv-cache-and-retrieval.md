@@ -36,4 +36,4 @@ VLM 典型的 workflow 是离线的：
 1. 流式地处理 video frame，使用最近窗口内的 vision token 对其他已缓存 vision token 的 vision-to-vision score 计算出这些 token 的重要性分数；
 2. 将 cache 预算按上下文分桶，先按照上述重要性分数贪心地保留一定比例的 token，当且仅当各桶内预算足够才填入，然后将剩下的未满的桶也按重要性分数填满，此举是为了避免只将最近的 token 填入 cache，增强长程能力。  
 
-![](/assets/屏幕截图-2026-08-21-190132.png.png)
+![](/assets/屏幕截图-2026-08-21-190132.png)
