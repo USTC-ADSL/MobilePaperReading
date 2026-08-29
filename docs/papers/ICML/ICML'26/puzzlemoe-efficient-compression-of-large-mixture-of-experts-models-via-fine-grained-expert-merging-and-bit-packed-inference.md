@@ -16,7 +16,7 @@ PuzzleMoE 考虑了专家的特殊权重更细粒度的进行合并。并通过�
 
 理论预测曲线与 Qwen1.5-MoE 等真实模型的经验数据高度吻合，说明权重是具有数值相关性的。
 
-Fighre2
+![puzzle-theory.png](https://img.195806.xyz/file/1787976363362_puzzle-theory.png)
 
 实验表明，将相似度阈值\tau_{sim}$ 设为 0.4 时，表现最好。
 
@@ -42,6 +42,6 @@ GPU 内核专为恢复专家并计算所用。
 ## Result
 PuzzleMoE 能够将常识推理的性能损失控制在 0.5% 到 1.5% 左右
 
-Figure 1
+![puzzlemoe-perf.png](https://img.195806.xyz/file/1787976322372_puzzlemoe-perf.png)
 
 PuzzleMoE 由于采用 Bit-packing，算子仅需对合并后的张量发起一次访存，即可在寄存器级别解码并重构出两个独立的权重参与计算。这大幅降低了IO开销
